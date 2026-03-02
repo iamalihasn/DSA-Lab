@@ -1,0 +1,23 @@
+[
+    {
+        "Name": "Ali Hasan",
+        "Age": 20,
+        "is_boy": true
+    },
+    {
+        "Name": "Ali Hasan",
+        "Age": 20,
+        "is_boy": true,
+        "Hobbies": [
+            "Coding",
+            "Gaming",
+            "Cooking"
+        ],
+        "marks": {
+            "Maths": 90,
+            "Physics": 85,
+            "Chemistry": 80
+        },
+        "is_pass": true
+    }
+]
