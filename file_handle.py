@@ -1,3 +1,5 @@
+import os
+from pathlib import Path
 # read file
 """
 file = open("myfile.txt","r")
@@ -27,7 +29,6 @@ with open("myfile.txt","r") as file:
 
 
 # check if file exists
-import os
 
 if os.path.exists("myfile.txt"):
     with open("myfile.txt","r") as file:
@@ -43,7 +44,6 @@ except FileNotFoundError:
     print("File not found")
 
 #also we can use os.path.isfile() to check if the path is a file or not
-from pathlib import Path
 
 file_path = Path("myfile.txt")
 if file_path.exists ():
