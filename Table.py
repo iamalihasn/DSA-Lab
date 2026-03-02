@@ -3,4 +3,5 @@ def table(number):
         print(f"{number} X {i} = {number*i}")
 
 if __name__ == "__main__":
-    print(__name__)
+    number = int(input("Enter number : "))
+    table(number)
