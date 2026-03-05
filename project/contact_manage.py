@@ -1,11 +1,14 @@
 class ContactBook:
   contact_data = []
 
+  # constructor or initializer-called when we create object of class
+
   def __init__(self,name,contact_number):
     self.name = name
     self.number = contact_number
     ContactBook.contact_data.append(self)
   
+
   def show_contact(self):
     return f"Name : {self.name} and Contact : {self.number}"
   
@@ -20,7 +23,7 @@ class ContactBook:
   @classmethod
   def search_contact(cls,search_name):
     for contact in cls.contact_data:
-      if contact.name == search_name:
+      if contact.name.lower() == search_name.lower():
         return contact.number
 
     return f"Not contact Found this name {search_name}"
@@ -28,17 +31,29 @@ class ContactBook:
   @classmethod
   def delete_contact(cls,name):
     for contact in cls.contact_data:
-      if contact.name == name:
+      if contact.name.lower() == name.lower():
         cls.contact_data.remove(contact)
         return "Delete contact successfully!"
     
     return f"No contact of this name {name}"
+  
+  @staticmethod
+  def validate_contact_number(contact_number):
+    if len(str(contact_number)) == 10 and str(contact_number).isdigit():
+      return True
+    else:
+      return False
 
-c= ContactBook("Ram",8294322434)
-c1 = ContactBook("Ali",8002938316)
-c1 = ContactBook("Salma",8651530267)
-#ContactBook.show_all_contact()
 
-print(ContactBook.delete_contact("Ram"))
-print(ContactBook.show_all_contact())
-print(ContactBook.search_contact("ram"))
+no_of_contact = int(input("How many contact you want to add : "))
+for i in range(no_of_contact):
+  name = input("Enter contact name : ")
+  contact_number = int(input("Enter contact number : "))
+  if ContactBook.validate_contact_number(contact_number):
+    ContactBook(name,contact_number)
+  else:
+    print("Invalid contact number! Please enter a valid 10-digit number.")
+
+print("======================================================")
+print("All Contacts:")
+ContactBook.show_all_contact()
