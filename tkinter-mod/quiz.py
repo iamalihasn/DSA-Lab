@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import Entry
 
 window = tk.Tk()
-window.title("My Profile")
+window.title("Quize app")
 window.geometry("400x300")
 
 def correct():
